@@ -24,6 +24,8 @@
 		CA383CAB1F3BC52300CBC474 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA383CA91F3BC52300CBC474 /* LaunchScreen.storyboard */; };
 		CA383CB61F3BC52300CBC474 /* Slack_CloneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA383CB51F3BC52300CBC474 /* Slack_CloneTests.swift */; };
 		CA383CC11F3BC52300CBC474 /* Slack_CloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA383CC01F3BC52300CBC474 /* Slack_CloneUITests.swift */; };
+		CA5A2D231F3D49F9009E96A5 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A2D221F3D49F9009E96A5 /* AuthService.swift */; };
+		CAC04D051F3E69B900B74ED0 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC04D041F3E69B900B74ED0 /* RoundedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		CA383CCF1F3BCA7B00CBC474 /* Slack-Clone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Slack-Clone-Bridging-Header.h"; sourceTree = "<group>"; };
 		CA383CD01F3BCA7B00CBC474 /* SWRevealViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		CA383CD11F3BCA7C00CBC474 /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		CA5A2D221F3D49F9009E96A5 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		CAC04D041F3E69B900B74ED0 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		FC84F76EAC0E1B7E90F034D8 /* Pods-Slack-Clone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slack-Clone.release.xcconfig"; path = "Pods/Target Support Files/Pods-Slack-Clone/Pods-Slack-Clone.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,9 +133,8 @@
 		CA1F42DD1F3BDF5A004993DE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CA383CA11F3BC52300CBC474 /* Main.storyboard */,
-				CA383CA91F3BC52300CBC474 /* LaunchScreen.storyboard */,
 				CA1F42E41F3BEAC1004993DE /* GradientView.swift */,
+				CAC04D041F3E69B900B74ED0 /* RoundedButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -176,11 +179,14 @@
 		CA383C9C1F3BC52300CBC474 /* Slack-Clone */ = {
 			isa = PBXGroup;
 			children = (
+				CA5A2D211F3D49DF009E96A5 /* Services */,
 				CA1F42E61F3BFDB2004993DE /* Utilities */,
 				CA1F42DE1F3BDF60004993DE /* Model */,
 				CA1F42DD1F3BDF5A004993DE /* View */,
 				CA1F42DB1F3BDF4A004993DE /* Controller */,
 				CA383CCE1F3BCA5B00CBC474 /* Supporting Files */,
+				CA383CA11F3BC52300CBC474 /* Main.storyboard */,
+				CA383CA91F3BC52300CBC474 /* LaunchScreen.storyboard */,
 				CA383C9D1F3BC52300CBC474 /* AppDelegate.swift */,
 				CA383CA71F3BC52300CBC474 /* Assets.xcassets */,
 				CA383CAC1F3BC52300CBC474 /* Info.plist */,
@@ -216,6 +222,14 @@
 			);
 			name = "Supporting Files";
 			path = "../Supporting Files";
+			sourceTree = "<group>";
+		};
+		CA5A2D211F3D49DF009E96A5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CA5A2D221F3D49F9009E96A5 /* AuthService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		E352145C609EEF98848E849E /* Pods */ = {
@@ -516,7 +530,9 @@
 				CA1F42E51F3BEAC1004993DE /* GradientView.swift in Sources */,
 				CA1F42E31F3BE227004993DE /* SWRevealViewController.m in Sources */,
 				CA1F42EC1F3D20A9004993DE /* CreateAccountVC.swift in Sources */,
+				CAC04D051F3E69B900B74ED0 /* RoundedButton.swift in Sources */,
 				CA1F42E81F3BFDC9004993DE /* Constants.swift in Sources */,
+				CA5A2D231F3D49F9009E96A5 /* AuthService.swift in Sources */,
 				CA383CA61F3BC52300CBC474 /* Slack_Clone.xcdatamodeld in Sources */,
 				CA383C9E1F3BC52300CBC474 /* AppDelegate.swift in Sources */,
 			);

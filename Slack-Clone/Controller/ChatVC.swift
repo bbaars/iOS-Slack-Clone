@@ -26,6 +26,4 @@ class ChatVC: UIViewController {
         // tap on previous screen to dismiss the controller
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
     }
-
-
 }
