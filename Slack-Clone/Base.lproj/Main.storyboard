@@ -95,7 +95,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ldM-tl-zbX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ldM-tl-zbX" customClass="CircleImage" customModule="Slack_Clone" customModuleProvider="target">
                                 <rect key="frame" x="16" y="572" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="Lik-Qb-Yoe"/>
@@ -406,7 +406,7 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="QCT-MV-5mD">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="QCT-MV-5mD" customClass="CircleImage" customModule="Slack_Clone" customModuleProvider="target">
                                 <rect key="frame" x="137" y="334" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="HMb-MX-0OS"/>
@@ -438,6 +438,10 @@
                                     <action selector="pickBackgroundColorPressed:" destination="HTN-Ca-iZz" eventType="touchUpInside" id="HfO-w8-Vh6"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="iyA-uV-2Wd">
+                                <rect key="frame" x="177" y="273.5" width="20" height="20"/>
+                                <color key="color" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -454,12 +458,15 @@
                             <constraint firstItem="GyE-dH-Bxq" firstAttribute="trailing" secondItem="0em-ji-qfb" secondAttribute="trailing" constant="16" id="akE-e2-GKo"/>
                             <constraint firstItem="E7K-m8-pX0" firstAttribute="centerX" secondItem="U1z-9G-etf" secondAttribute="centerX" id="dN1-y4-f3Q"/>
                             <constraint firstItem="rNZ-DE-Rpe" firstAttribute="centerX" secondItem="U1z-9G-etf" secondAttribute="centerX" id="k5n-qa-TKi"/>
+                            <constraint firstItem="iyA-uV-2Wd" firstAttribute="centerX" secondItem="U1z-9G-etf" secondAttribute="centerX" id="kjv-uY-SgE"/>
+                            <constraint firstItem="iyA-uV-2Wd" firstAttribute="centerY" secondItem="U1z-9G-etf" secondAttribute="centerY" constant="-50" id="x7p-Oq-q6l"/>
                             <constraint firstItem="7n5-KC-y5A" firstAttribute="width" secondItem="QCT-MV-5mD" secondAttribute="width" id="xa5-eE-PbZ"/>
                             <constraint firstItem="6SR-MN-mxU" firstAttribute="top" secondItem="GyE-dH-Bxq" secondAttribute="top" constant="60" id="ydU-ME-7VS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GyE-dH-Bxq"/>
                     </view>
                     <connections>
+                        <outlet property="activitySpinner" destination="iyA-uV-2Wd" id="sCu-Us-pDA"/>
                         <outlet property="emailText" destination="6WW-L5-dHU" id="UJX-Tf-KYh"/>
                         <outlet property="passwordText" destination="iuE-8U-1sT" id="1Nr-wc-LJP"/>
                         <outlet property="userImage" destination="QCT-MV-5mD" id="Kfe-oK-4W1"/>

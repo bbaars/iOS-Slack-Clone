@@ -40,3 +40,11 @@ let HEADER = [
     "Content-type": "application/json; charset=utf-8"
 ]
 
+// MARK: - Colors
+
+let smackColor = #colorLiteral(red: 0.3631127477, green: 0.4045833051, blue: 0.8775706887, alpha: 0.699031464)
+
+
+// MARK: - Notification Constants
+
+let NOTIF_USER_DATA_DID_CHANGE = Notification.Name("notifUserDataChanged")
