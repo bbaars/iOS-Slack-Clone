@@ -25,5 +25,19 @@ class ChatVC: UIViewController {
         
         // tap on previous screen to dismiss the controller
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        
+        if AuthService.instance.isLoggedIn {
+            AuthService.instance.findUserByEmail(completion: { (success) in
+                if success {
+                    NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+                }
+            })
+        }
+        
+        MessageService.instance.findAllChannels { (success) in
+            
+            
+            
+        }
     }
 }

@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -111,6 +112,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fi4-iT-a56">
                                 <rect key="frame" x="281" y="87.5" width="22" height="22"/>
                                 <state key="normal" image="addChannelButton"/>
+                                <connections>
+                                    <action selector="addChannelPressed:" destination="4ax-hP-xGw" eventType="touchUpInside" id="qDf-Tn-PIb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIf-ry-j6f">
                                 <rect key="frame" x="111" y="591" width="45" height="36"/>
@@ -126,10 +130,10 @@
                                 <rect key="frame" x="0.0" y="129.5" width="375" height="422.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="35l-c5-a3x">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChannelCell" id="35l-c5-a3x" customClass="ChannelCell" customModule="Slack_Clone" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="35l-c5-a3x" id="kRo-kH-n4P">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="35l-c5-a3x" id="kRo-kH-n4P" customClass="ChannelCell" customModule="Slack_Clone" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -146,6 +150,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="channelName" destination="zUa-6a-Xgv" id="lQi-2e-bhg"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -177,6 +184,8 @@
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="UIf-ry-j6f" id="2MJ-pS-r8W"/>
+                        <outlet property="tableView" destination="cNt-Ul-QXD" id="K0G-Nc-8vo"/>
+                        <outlet property="userImage" destination="ldM-tl-zbX" id="EGh-DR-I8Y"/>
                         <segue destination="VgQ-lr-ciS" kind="show" identifier="toLogin" id="Npj-Z6-EbY"/>
                     </connections>
                 </viewController>
@@ -215,11 +224,14 @@
                                         <real key="value" value="7"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="VgQ-lr-ciS" eventType="touchUpInside" id="fvc-35-Lue"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Nx9-xB-IoG">
                                 <rect key="frame" x="62.5" y="160" width="250" height="94"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lAp-es-nyO">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lAp-es-nyO">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="52s-CE-tmF"/>
@@ -285,12 +297,18 @@
                                     <action selector="createAccountButtonPressed:" destination="VgQ-lr-ciS" eventType="touchUpInside" id="gxH-p5-CxM"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="PEW-jJ-rCO">
+                                <rect key="frame" x="169" y="249" width="37" height="37"/>
+                                <color key="color" red="0.2901960784" green="0.30196078430000001" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Nx9-xB-IoG" firstAttribute="centerX" secondItem="Nco-xD-mRb" secondAttribute="centerX" id="6ly-gI-Noc"/>
+                            <constraint firstItem="PEW-jJ-rCO" firstAttribute="centerX" secondItem="Nco-xD-mRb" secondAttribute="centerX" id="Dmj-4x-c5Q"/>
                             <constraint firstItem="B6h-DT-CDT" firstAttribute="top" secondItem="Atl-ii-Hby" secondAttribute="top" constant="8" id="EV1-3q-cGO"/>
                             <constraint firstItem="ra5-yb-SH8" firstAttribute="top" secondItem="2ya-iL-r0q" secondAttribute="bottom" constant="8" id="GVH-JV-yUn"/>
+                            <constraint firstItem="2ya-iL-r0q" firstAttribute="top" secondItem="PEW-jJ-rCO" secondAttribute="bottom" constant="8" id="Ink-jI-pp3"/>
                             <constraint firstItem="Atl-ii-Hby" firstAttribute="trailing" secondItem="B6h-DT-CDT" secondAttribute="trailing" constant="16" id="MCh-6l-3ux"/>
                             <constraint firstItem="ra5-yb-SH8" firstAttribute="centerX" secondItem="Nco-xD-mRb" secondAttribute="centerX" id="OWT-dU-Cjc"/>
                             <constraint firstItem="uPu-ay-I3D" firstAttribute="top" secondItem="Atl-ii-Hby" secondAttribute="top" constant="60" id="PYM-N7-b1N"/>
@@ -302,6 +320,9 @@
                         <viewLayoutGuide key="safeArea" id="Atl-ii-Hby"/>
                     </view>
                     <connections>
+                        <outlet property="activitySpinner" destination="PEW-jJ-rCO" id="QPb-iL-CRr"/>
+                        <outlet property="passwordText" destination="DD5-yb-JuU" id="zo1-1Y-7yp"/>
+                        <outlet property="usernameText" destination="lAp-es-nyO" id="abx-02-pMK"/>
                         <segue destination="HTN-Ca-iZz" kind="show" identifier="toCreateAccount" id="Q0n-2U-nYE"/>
                     </connections>
                 </viewController>
@@ -360,7 +381,7 @@
                                         </constraints>
                                         <color key="textColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="email"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tKe-Tm-Esz">
                                         <rect key="frame" x="0.0" y="38" width="250" height="2"/>
@@ -377,7 +398,7 @@
                                         </constraints>
                                         <color key="textColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="username"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwJ-CS-lP4">
                                         <rect key="frame" x="0.0" y="92" width="250" height="2"/>
@@ -394,7 +415,7 @@
                                         </constraints>
                                         <color key="textColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BEt-sB-6fr">
                                         <rect key="frame" x="0.0" y="146" width="250" height="2"/>
@@ -438,8 +459,8 @@
                                     <action selector="pickBackgroundColorPressed:" destination="HTN-Ca-iZz" eventType="touchUpInside" id="HfO-w8-Vh6"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="iyA-uV-2Wd">
-                                <rect key="frame" x="177" y="273.5" width="20" height="20"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="iyA-uV-2Wd">
+                                <rect key="frame" x="168.5" y="265" width="37" height="37"/>
                                 <color key="color" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
