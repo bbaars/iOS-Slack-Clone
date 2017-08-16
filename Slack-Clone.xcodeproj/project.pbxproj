@@ -31,12 +31,16 @@
 		CA588E4A1F3FC10700264967 /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA588E491F3FC10700264967 /* ChannelCell.swift */; };
 		CA588E4D1F3FC6B400264967 /* AddChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA588E4B1F3FC6B400264967 /* AddChannelVC.swift */; };
 		CA588E4E1F3FC6B400264967 /* AddChannelVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA588E4C1F3FC6B400264967 /* AddChannelVC.xib */; };
+		CA588E501F40856300264967 /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA588E4F1F40856300264967 /* SocketService.swift */; };
 		CA5A2D231F3D49F9009E96A5 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5A2D221F3D49F9009E96A5 /* AuthService.swift */; };
 		CAB271961F3E81190007F3C5 /* AvatarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB271951F3E81190007F3C5 /* AvatarPickerVC.swift */; };
 		CAB271981F3E83110007F3C5 /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB271971F3E83110007F3C5 /* AvatarCell.swift */; };
 		CABD5A891F3F3C250075D09F /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABD5A881F3F3C250075D09F /* CircleImage.swift */; };
 		CAC04D051F3E69B900B74ED0 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC04D041F3E69B900B74ED0 /* RoundedButton.swift */; };
 		CAC04D071F3E73E000B74ED0 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC04D061F3E73E000B74ED0 /* UserDataService.swift */; };
+		CACA1D1D1F40E9D600B17899 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACA1D1C1F40E9D600B17899 /* Message.swift */; };
+		CACA1D1F1F41002600B17899 /* KeyboardBoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACA1D1E1F41002600B17899 /* KeyboardBoundView.swift */; };
+		CACA1D211F41031E00B17899 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACA1D201F41031E00B17899 /* MessageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,12 +98,16 @@
 		CA588E491F3FC10700264967 /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		CA588E4B1F3FC6B400264967 /* AddChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChannelVC.swift; sourceTree = "<group>"; };
 		CA588E4C1F3FC6B400264967 /* AddChannelVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddChannelVC.xib; sourceTree = "<group>"; };
+		CA588E4F1F40856300264967 /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
 		CA5A2D221F3D49F9009E96A5 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		CAB271951F3E81190007F3C5 /* AvatarPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerVC.swift; sourceTree = "<group>"; };
 		CAB271971F3E83110007F3C5 /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
 		CABD5A881F3F3C250075D09F /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		CAC04D041F3E69B900B74ED0 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		CAC04D061F3E73E000B74ED0 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
+		CACA1D1C1F40E9D600B17899 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		CACA1D1E1F41002600B17899 /* KeyboardBoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardBoundView.swift; sourceTree = "<group>"; };
+		CACA1D201F41031E00B17899 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		FC84F76EAC0E1B7E90F034D8 /* Pods-Slack-Clone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slack-Clone.release.xcconfig"; path = "Pods/Target Support Files/Pods-Slack-Clone/Pods-Slack-Clone.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,6 +180,8 @@
 				CAB271971F3E83110007F3C5 /* AvatarCell.swift */,
 				CABD5A881F3F3C250075D09F /* CircleImage.swift */,
 				CA588E491F3FC10700264967 /* ChannelCell.swift */,
+				CACA1D1E1F41002600B17899 /* KeyboardBoundView.swift */,
+				CACA1D201F41031E00B17899 /* MessageCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -180,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				CA1CA3681F3FBC9C007DD75F /* Channel.swift */,
+				CACA1D1C1F40E9D600B17899 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -269,6 +280,7 @@
 				CA5A2D221F3D49F9009E96A5 /* AuthService.swift */,
 				CAC04D061F3E73E000B74ED0 /* UserDataService.swift */,
 				CA1CA3661F3FBB82007DD75F /* MessageService.swift */,
+				CA588E4F1F40856300264967 /* SocketService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -437,7 +449,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		0E76366EE7BB8F1E341302AD /* [CP] Copy Pods Resources */ = {
@@ -512,7 +524,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		BD4239BE5CE158DFAFCB2B9E /* [CP] Copy Pods Resources */ = {
@@ -557,7 +569,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -569,6 +581,7 @@
 			files = (
 				CA1F42E21F3BE04A004993DE /* ChannelVC.swift in Sources */,
 				CA1F42E01F3BE03A004993DE /* ChatVC.swift in Sources */,
+				CACA1D1F1F41002600B17899 /* KeyboardBoundView.swift in Sources */,
 				CAB271981F3E83110007F3C5 /* AvatarCell.swift in Sources */,
 				CA1F42EA1F3D1E96004993DE /* LoginVC.swift in Sources */,
 				CA1CA3631F3F80C8007DD75F /* ProfileVC.swift in Sources */,
@@ -581,8 +594,11 @@
 				CAC04D071F3E73E000B74ED0 /* UserDataService.swift in Sources */,
 				CAC04D051F3E69B900B74ED0 /* RoundedButton.swift in Sources */,
 				CA1F42E81F3BFDC9004993DE /* Constants.swift in Sources */,
+				CA588E501F40856300264967 /* SocketService.swift in Sources */,
 				CA5A2D231F3D49F9009E96A5 /* AuthService.swift in Sources */,
+				CACA1D211F41031E00B17899 /* MessageCell.swift in Sources */,
 				CA383CA61F3BC52300CBC474 /* Slack_Clone.xcdatamodeld in Sources */,
+				CACA1D1D1F40E9D600B17899 /* Message.swift in Sources */,
 				CA588E4D1F3FC6B400264967 /* AddChannelVC.swift in Sources */,
 				CA383C9E1F3BC52300CBC474 /* AppDelegate.swift in Sources */,
 				CAB271961F3E81190007F3C5 /* AvatarPickerVC.swift in Sources */,

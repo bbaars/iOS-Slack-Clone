@@ -16,7 +16,6 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,10 +26,17 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.channelsLoaded(_:)), name: NOTIF_CHANNELS_LOADED, object: nil)
+        
+        SocketService.instance.getChannel { (success) in
+            
+            if success {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         setupUserInfo()
     }
     
@@ -47,8 +53,14 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             loginButton.setTitle("Login", for: .normal)
             userImage.image = UIImage(named: "menuProfileIcon")
             userImage.layer.backgroundColor = UIColor.clear.cgColor
+            tableView.reloadData()
         }
     }
+    
+    @objc func channelsLoaded(_ notif: Notification) {
+        tableView.reloadData()
+    }
+    
     
     // MARK: - Table View Protocol
     
@@ -72,6 +84,16 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        MessageService.instance.seletedChannel = MessageService.instance.channels[indexPath.row]
+        NotificationCenter.default.post(name: NOTIF_CHANNEL_SELECTED, object: nil)
+        
+        // close slide out menu once the user has selected a channel
+        self.revealViewController().revealToggle(animated: true)
+        
+    }
+    
     
     // MARK: - IBActions
     
@@ -90,10 +112,12 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func addChannelPressed(_ sender: Any) {
         
-        let addChannel = AddChannelVC()
+        if AuthService.instance.isLoggedIn {
+            let addChannel = AddChannelVC()
         
-        addChannel.modalPresentationStyle = .custom
-        present(addChannel, animated: true, completion: nil)
+            addChannel.modalPresentationStyle = .custom
+            present(addChannel, animated: true, completion: nil)
+        }
     }
 }
 
