@@ -29,8 +29,15 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.channelsLoaded(_:)), name: NOTIF_CHANNELS_LOADED, object: nil)
         
         SocketService.instance.getChannel { (success) in
-            
             if success {
+                self.tableView.reloadData()
+            }
+        }
+        
+        // Obtains all the unread chat messages
+        SocketService.instance.getChatMessage { (newMessage) in
+            if newMessage.channelID != MessageService.instance.seletedChannel?.id && AuthService.instance.isLoggedIn {
+                MessageService.instance.unreadChannels.append(newMessage.channelID)
                 self.tableView.reloadData()
             }
         }
@@ -85,6 +92,15 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if MessageService.instance.unreadChannels.count > 0 {
+            // filter out the channel we just clicked on
+            MessageService.instance.unreadChannels = MessageService.instance.unreadChannels.filter{$0 != MessageService.instance.channels[indexPath.row].id}
+        }
+        
+        let index = IndexPath(row: indexPath.row, section: 0)
+        tableView.reloadRows(at: [index], with: .none)
+        tableView.selectRow(at: index, animated: false, scrollPosition: .none)
         
         MessageService.instance.seletedChannel = MessageService.instance.channels[indexPath.row]
         NotificationCenter.default.post(name: NOTIF_CHANNEL_SELECTED, object: nil)

@@ -48,15 +48,17 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.channelSelected(_:)), name: NOTIF_CHANNEL_SELECTED, object: nil)
         
-        SocketService.instance.getChatMessage { (success) in
-            if success {
+        SocketService.instance.getChatMessage { (newMessage) in
+            if newMessage.channelID == MessageService.instance.seletedChannel?.id && AuthService.instance.isLoggedIn {
+                MessageService.instance.messages.append(newMessage)
                 self.tableView.reloadData()
                 
-                let endIndex = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
                 if MessageService.instance.messages.count > 0 {
-                    self.tableView.scrollToRow(at: endIndex, at: .bottom, animated: true)
+                    let indexPath = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
+                    self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
                 }
             }
+            
         }
         
         SocketService.instance.getTypingUsers { (typingUsers) in
@@ -69,7 +71,6 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             for (typingUser, channel) in typingUsers {
                 if typingUser != UserDataService.instance.name && channel == channelId {
-
                     if names == "" {
                         names = typingUser
                     } else {
@@ -78,6 +79,8 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                      numberOfTypers += 1
                 }
             }
+            
+            
             
             if numberOfTypers > 0 && AuthService.instance.isLoggedIn == true {
                 var verb = "is"
@@ -139,6 +142,8 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             if success {
                 self.tableView.reloadData()
+                let path = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
+                self.tableView.scrollToRow(at: path, at: .bottom, animated: false)
             }
             
         }

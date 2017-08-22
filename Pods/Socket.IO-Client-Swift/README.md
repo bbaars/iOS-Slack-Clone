@@ -57,6 +57,9 @@ SocketIOClient* socket = [[SocketIOClient alloc] initWithSocketURL:url config:@{
 - Supports TLS/SSL
 - Can be used from Objective-C
 
+## FAQS
+Checkout the [FAQs](https://nuclearace.github.io/Socket.IO-Client-Swift/faq.html) for commonly asked questions.
+
 ## Installation
 Requires Swift 3/Xcode 8.x
 
@@ -88,8 +91,8 @@ Then import `import SocketIO`.
 ### Carthage
 Add these line to your `Cartfile`:
 ```
-github "nuclearace/Starscream" ~> 8.0.2
-github "socketio/socket.io-client-swift" ~> 11.0.2 # Or latest version
+github "nuclearace/Starscream" ~> 8.0.4
+github "socketio/socket.io-client-swift" ~> 11.1.1 # Or latest version
 ```
 
 Run `carthage update --platform ios,macosx`.
@@ -101,7 +104,7 @@ Create `Podfile` and add `pod 'Socket.IO-Client-Swift'`:
 use_frameworks!
 
 target 'YourApp' do
-    pod 'Socket.IO-Client-Swift', '~> 11.0.2' # Or latest version
+    pod 'Socket.IO-Client-Swift', '~> 11.1.1' # Or latest version
 end
 ```
 
@@ -129,7 +132,7 @@ Objective-C:
 Add this line to your `Seedfile`:
 
 ```
-github "socketio/socket.io-client-swift", "v11.0.2", :files => "Source/*.swift" # Or latest version
+github "socketio/socket.io-client-swift", "v11.1.1", :files => "Source/*.swift" # Or latest version
 ```
 
 Run `seed install`.
