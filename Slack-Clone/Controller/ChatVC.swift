@@ -142,8 +142,10 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             if success {
                 self.tableView.reloadData()
-                let path = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
-                self.tableView.scrollToRow(at: path, at: .bottom, animated: false)
+                if MessageService.instance.messages.count > 0 {
+                    let path = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
+                    self.tableView.scrollToRow(at: path, at: .bottom, animated: false)
+                }
             }
             
         }
